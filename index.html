@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Lazyload</title>
+	<style>
+	    .img_day {
+	    	display: block;
+			margin-bottom: 10px;
+			width: 500px;
+	    }
+    </style>
+</head>
+<body>
+    <img class = "img_day" src="img/loading.gif" data-src="img/day1.png">
+    <img class = "img_day" src="img/loading.gif" data-src="img/day2.png">
+    <img class = "img_day" src="img/loading.gif" data-src="img/day3.png">
+    <img class = "img_day" src="img/loading.gif" data-src="img/day4.png">
+    <img class = "img_day" src="img/loading.gif" data-src="img/day5.png">
+    <img class = "img_day" src="img/loading.gif" data-src="img/day6.png">
+    <img class = "img_day" src="img/loading.gif" data-src="img/day7.png">
+    <img class = "img_day" src="img/loading.gif" data-src="img/day8.png">
+    <img class = "img_day" src="img/loading.gif" data-src="img/day9.png">
+    <img class = "img_day" src="img/loading.gif" data-src="img/day10.png">
+    <img class = "img_day" src="img/loading.gif" data-src="img/day11.png">
+    <img class = "img_day" src="img/loading.gif" data-src="img/day12.png">
+    
+   <script type="text/javascript">
+	   	function query(selector) {
+	   		return Array.from(document.querySelectorAll(selector));
+	   	}
+	   	var io = new IntersectionObserver(function(items) {
+	   		items.forEach(function(item) {
+	   			var target = item.target;
+	   			if(target.getAttribute('src') == 'images/loading.gif') {
+	   				target.src = target.getAttribute('data-src');
+	   			}
+	   		})
+	   	});
+	   	query('img').forEach(function(item) {
+	   		io.observe(item);
+	   	});
+	</script>
+
+</body>
+</html>
